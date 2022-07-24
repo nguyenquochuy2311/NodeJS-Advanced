@@ -1,22 +1,20 @@
 const express = require('express');
 const app = express();
-const router = express.Router();
-const createError = require('http-errors');
+const router = require('./router');
 const logEvents = require('./logEvents');
 
-router.get("/", (req, res, next) => {
-    return next(createError.InternalServerError("Error 500"));
-    res.send("Error 500");
-})
+app.use("/", router);
 
-app.use("/", (err, req, res, next) => {
-    if (err) logEvents(err.message);
-    res.status(err.status).send({
+app.use((err, req, res, next) => {
+    logEvents(`${req.url} --- ${req.method} --- ${err.message}`);
+    res.status(err.status).json({
         status: err.status || 500,
         message: err.message
     })
 })
 
-app.listen(3000, () => console.log("http://localhost:3000"));
+app.listen(3000, () => {
+    console.log("Port 3000 running");
+})
 
 module.exports = app;

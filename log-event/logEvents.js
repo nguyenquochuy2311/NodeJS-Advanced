@@ -1,11 +1,14 @@
 const fs = require('fs').promises;
 const path = require('path');
+const { format } = require('date-fns');
 
-const filename = path.join(__dirname, "./logs", "nodejs.log");
+const fileName = path.join(__dirname, "./logs", "nodejs.log");
 
 const logEvents = async (msg) => {
+    const dateTime = `${format(new Date(), 'dd-MM-yyyy\tss:mm:HH')}`;
+    const contentLog = `${dateTime}---${msg}`;
     try {
-        fs.appendFile(filename, msg);
+        fs.appendFile(fileName, contentLog);
     } catch (error) {
         console.log(error);
     }
