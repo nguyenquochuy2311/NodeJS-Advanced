@@ -7,7 +7,7 @@ const Post = () => {
 
   const post = posts.find((p) => p.id.toString() === path);
 
-  console.log(location);
+  // console.log(location);
   return (
     <div className="post">
       <img src={post.img} alt="" className="postImg" />
