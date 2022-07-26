@@ -1,6 +1,9 @@
 import Google from "../img/google.png";
 import Facebook from "../img/facebook.png";
 import Github from "../img/github.png";
+import Twitter from "../img/twitter.png";
+import Linkln from "../img/linkln.png";
+import Instagram from "../img/instagram.png";
 
 const Login = () => {
   const google = () => {
@@ -38,9 +41,21 @@ const Login = () => {
           <div className="or">OR</div>
         </div>
         <div className="right">
-          <input type="text" placeholder="Username" />
+          {/* <input type="text" placeholder="Username" />
           <input type="text" placeholder="Password" />
-          <button className="submit">Login</button>
+          <button className="submit">Login</button> */}
+          <div className="loginButton twitter">
+            <img src={Twitter} alt="" className="icon" />
+            Twitter
+          </div>
+          <div className="loginButton linkln">
+            <img src={Linkln} alt="" className="icon" />
+            LinkedIn
+          </div>
+          <div className="loginButton instagram">
+            <img src={Instagram} alt="" className="icon" />
+            Instagram
+          </div>
         </div>
       </div>
     </div>
