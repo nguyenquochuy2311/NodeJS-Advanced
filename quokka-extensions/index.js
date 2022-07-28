@@ -1,10 +1,11 @@
 //Ctrl Shift P => Quokka
-const a = 1;
-console.log(a);
+const a = '10122222';
 
-const list = {
-    "id": 1,
-    "name": "huy"
-};
 
-console.log(list);
+if(!a.split('1').includes('0')) {
+    let c = a.split('1');
+    let b = c.sort()[c.length-1].length + 1;
+    console.log(b)
+} 
+    
+
