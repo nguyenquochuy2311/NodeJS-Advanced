@@ -11,11 +11,11 @@ Output: -2
 Explanation: 7/-3 = -2.33333.. which is truncated to -2.
 */
 
-dividend = 10;
-divisor = 3
+dividend = -2147483648;
+divisor = -1
 
 var divide = function (dividend, divisor) {
-
+    return dividend / divisor;
 };
 
 console.log(divide(dividend, divisor));
