@@ -1,18 +1,28 @@
-GET http://localhost:3000/api
+@baseUrl = http://localhost:3000
 
-###
-POST http://localhost:3000/api/v1/auth/register
+### Test API
+# @Comment
+GET {{baseUrl}}/api
+
+### Register User
+POST {{baseUrl}}/api/v1/auth/register
 Content-Type: application/json
 
 {
-    "password": "123456789"
+    "first_name": "huy",
+    "email": "huy@cafe24corp.vn",
+    "password": "123456789",
+    "repeat_password": "123456789"
 }
 
-###
-POST http://localhost:3000/api/v1/auth/login
+### Login User
+POST {{baseUrl}}/api/v1/auth/login
 
-###
-POST http://localhost:3000/api/v1/auth/refresh-token
+### Refresh Token
+POST {{baseUrl}}/api/v1/auth/refresh-token
 
-###
-POST http://localhost:3000/api/v1/auth/logout
+### Logout
+POST {{baseUrl}}/api/v1/auth/logout
+
+### Get All Users
+GET {{baseUrl}}/api/v1/users

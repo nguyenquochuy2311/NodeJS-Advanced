@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
-const schema = mongoose.Schema();
-
+import bcrypt from 'bcrypt';
 import {
     authConnection,
     shipngayConnection
 } from '../../config/mongodb.multi-connection';
+
+const schema = mongoose.Schema;
 
 const Authentication = new schema({
     refresh_token: {
@@ -14,11 +15,10 @@ const Authentication = new schema({
     access_token: {
         type: String,
         required: false
-    },
-    timestamps: {
-        createdAt: 'created_at',
-        updatedAt: 'updated_at'
     }
+}, {
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
 });
 
 const User = new schema({
@@ -29,7 +29,8 @@ const User = new schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        select: false
     },
     first_name: {
         type: String,
@@ -37,7 +38,7 @@ const User = new schema({
     },
     last_name: {
         type: String,
-        required: true
+        required: false
     },
     api_key: {
         type: String,
@@ -59,22 +60,25 @@ const User = new schema({
         required: true,
         default: 0
     },
-    timestamps: {
-        createdAt: 'created_at',
-        updatedAt: 'updated_at'
-    },
-    toJSON() {
-        return {
-            email: this.email ?? null,
-            first_name: this.first_name ?? null,
-            last_name: this.last_name ?? null,
-            api_key: this.api_key ?? null,
-            api_secret: this.api_secret ?? null,
-            is_verified: this.is_verified ?? null,
-            role: this.role ?? null
-        }
-    }
+}, {
+    timestamps: true
 });
+
+/* Custom JSON */
+User.methods.toJSON() = function() {
+    
+}
+
+/* Hook before */
+User.pre('save', async function (next) {
+    try {
+        const saltRounds = 10;
+        const salt = await bcrypt.genSalt(saltRounds);
+        this.password = await bcrypt.hash(this.password, salt);
+    } catch (error) {
+        next(error);
+    }
+})
 
 module.exports = {
     Authentication: authConnection.model('authentication', Authentication),
