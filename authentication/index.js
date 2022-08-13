@@ -38,15 +38,11 @@ app.use((req, res, next) => {
     next(createError.NotFound('The API does not exist or has not been published in an environment.'));
 })
 app.use((err, req, res, next) => {
-    res.status(err.status || 500).send({
+    res.status(err.status || 400).send({
+        success: false,
         message: err.message
     })
 })
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
 
 app.listen(port, () => {
     console.log(`Server started: ${corsOptions.origin[0]}`)

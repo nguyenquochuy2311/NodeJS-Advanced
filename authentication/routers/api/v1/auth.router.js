@@ -5,9 +5,7 @@ const router = express.Router();
 
 router.post('/register', authController.register);
 
-router.post('/login', (req, res, next) => {
-    res.send('function login');
-})
+router.post('/login', authController.login);
 
 router.post('/refresh-token', (req, res, next) => {
     res.send('function refresh-token');

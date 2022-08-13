@@ -42,12 +42,10 @@ const User = new schema({
     },
     api_key: {
         type: String,
-        unique: true,
         required: false
     },
     api_secret: {
         type: String,
-        unique: true,
         required: false
     },
     is_verified: {
@@ -61,13 +59,23 @@ const User = new schema({
         default: 0
     },
 }, {
-    timestamps: true
+    timestamps: {
+        createdAt: 'created_at',
+        updatedAt: 'updated_at'
+    }
+}, {
+    toJSON: function () {
+        return {
+            email: this.email,
+            first_name: this.first_name,
+            last_name: !!this.last_name,
+            api_key: !!this.api_key,
+            api_secret: !!this.api_secret,
+            is_verified: !!this.is_verified,
+            role: !!this.role
+        }
+    }
 });
-
-/* Custom JSON */
-User.methods.toJSON() = function() {
-    
-}
 
 /* Hook before */
 User.pre('save', async function (next) {
@@ -78,7 +86,15 @@ User.pre('save', async function (next) {
     } catch (error) {
         next(error);
     }
-})
+});
+
+User.methods.comparePassword = async function (password) {
+    try {
+        return await bcrypt.compare(password, this.password);
+    } catch (error) {
+
+    }
+}
 
 module.exports = {
     Authentication: authConnection.model('authentication', Authentication),

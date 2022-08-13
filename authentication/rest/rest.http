@@ -10,14 +10,20 @@ Content-Type: application/json
 
 {
     "first_name": "huy",
-    "email": "huy@cafe24corp.vn",
+    "last_name": "nguyen",
+    "email": "huy@gmail.com",
     "password": "123456789",
     "repeat_password": "123456789"
 }
 
 ### Login User
 POST {{baseUrl}}/api/v1/auth/login
+Content-Type: application/json
 
+{
+    "email": "huy@cafe24corp.vn",
+    "password": "123459"
+}
 ### Refresh Token
 POST {{baseUrl}}/api/v1/auth/refresh-token
 
@@ -26,3 +32,9 @@ POST {{baseUrl}}/api/v1/auth/logout
 
 ### Get All Users
 GET {{baseUrl}}/api/v1/users
+
+### Get One Users
+GET {{baseUrl}}/api/v1/users/62f7aab891acb028952
+
+### Delete User
+DELETE {{baseUrl}}/api/v1/users/62f7a252259e43fcaca1425d
