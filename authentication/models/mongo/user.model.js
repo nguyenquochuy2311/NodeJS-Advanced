@@ -29,8 +29,7 @@ const User = new schema({
     },
     password: {
         type: String,
-        required: true,
-        select: false
+        required: true
     },
     first_name: {
         type: String,
@@ -63,21 +62,39 @@ const User = new schema({
         createdAt: 'created_at',
         updatedAt: 'updated_at'
     }
-}, {
-    toJSON: function () {
-        return {
-            email: this.email,
-            first_name: this.first_name,
-            last_name: !!this.last_name,
-            api_key: !!this.api_key,
-            api_secret: !!this.api_secret,
-            is_verified: !!this.is_verified,
-            role: !!this.role
-        }
-    }
 });
 
-/* Hook before */
+/* Getter Setter */
+// User.path('password').
+//     get(function () {
+//         return this.password;
+//     }).
+//     set(function (password) {
+//         this.password = password;
+//     });
+
+/* Methods */
+User.methods.toJSON = function () {
+    return {
+        id: this._id,
+        email: this.email,
+        first_name: this.first_name,
+        last_name: this.last_name,
+        is_verified: this.is_verified,
+        role: this.role,
+    }
+};
+
+User.methods.comparePassword = async function (password) {
+    try {
+        return await bcrypt.compare(password, this.password);
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
+
+/* Hook DB */
 User.pre('save', async function (next) {
     try {
         const saltRounds = 10;
@@ -87,14 +104,6 @@ User.pre('save', async function (next) {
         next(error);
     }
 });
-
-User.methods.comparePassword = async function (password) {
-    try {
-        return await bcrypt.compare(password, this.password);
-    } catch (error) {
-
-    }
-}
 
 module.exports = {
     Authentication: authConnection.model('authentication', Authentication),

@@ -13,7 +13,7 @@ module.exports = {
             await validateRegister(req.body);
 
             let user = await User.findOne({ email: req.body.email });
-            if (!user)
+            if (user)
                 throw createError.Conflict(`${req.body.email} already exists`);
 
             const propsToRemove = ['repeat_password'];
@@ -23,7 +23,7 @@ module.exports = {
             return res.status(200).send({
                 success: true,
                 message: 'Register success',
-                data: userSaved
+                data: userSaved.toJSON()
             });
         } catch (error) {
             next(error);
@@ -37,16 +37,16 @@ module.exports = {
 
             const user = await User.findOne({ email: email });
             if (!user)
-                throw createError.Conflict(`${email} not exists`);
+                throw createError.BadRequest(`${email} does not exists`);
 
-            const checkPassword = await User.comparePassword(password);
-            if (!checkPassword)
+            const isPassword = await user.comparePassword(password);
+            if (!isPassword)
                 throw createError.Unauthorized();
 
             return res.status(200).send({
                 success: true,
                 message: 'Login success',
-                data: user
+                data: user.toJSON()
             });
         } catch (error) {
             next(error);

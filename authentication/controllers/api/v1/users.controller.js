@@ -22,7 +22,7 @@ module.exports = {
         try {
             const { id } = req.params;
             if (!isMongoId(id))
-                throw createError.BadRequest(`User not exist`);
+                throw createError.NotFound('User does not exist');
 
             const user = await User.findById(id);
 
@@ -39,7 +39,7 @@ module.exports = {
         try {
             const { id } = req.params;
             if (!isMongoId(id))
-                throw createError.BadRequest('User not exist');
+                throw createError.NotFound('User does not exist');
 
             User.findByIdAndRemove(id, (err) => {
                 if (!err) {
