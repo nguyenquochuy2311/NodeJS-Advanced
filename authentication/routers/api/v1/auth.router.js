@@ -7,9 +7,7 @@ router.post('/register', authController.register);
 
 router.post('/login', authController.login);
 
-router.post('/refresh-token', (req, res, next) => {
-    res.send('function refresh-token');
-})
+router.post('/refresh-token', authController.refreshToken);
 
 router.post('/logout', (req, res, next) => {
     res.send('function logout');

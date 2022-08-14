@@ -18,7 +18,11 @@ const verifyAccessToken = async (req, res, next) => {
     const token = valueHeader.split(' ')[1];
 
     JWT.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, payload) => {
-        if (err) return next(createHttpError.Unauthorized());
+        if (err) {
+            if (err.name === 'TokenExpiredError')
+                return next(createHttpError.Unauthorized('Token expired'));
+            return next(createHttpError.Unauthorized(err.message));
+        }
 
         User.findById(payload.userId)
             .then(async (user) => {
@@ -32,4 +36,25 @@ const verifyAccessToken = async (req, res, next) => {
     });
 };
 
-module.exports = verifyAccessToken;
+const verifyRefreshToken = async (refreshToken) => {
+    return new Promise((resolve, reject) => {
+        JWT.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, payload) => {
+            if (err) reject(err);
+
+            User.findById(payload.userId)
+                .then(async (user) => {
+                    if (!user)
+                        reject(null);
+                    resolve(user._id);
+                })
+                .catch(error => {
+                    return reject(error);
+                });
+        });
+    });
+};
+
+module.exports = {
+    verifyAccessToken,
+    verifyRefreshToken
+}

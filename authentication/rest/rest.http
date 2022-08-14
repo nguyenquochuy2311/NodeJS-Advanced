@@ -26,13 +26,18 @@ Content-Type: application/json
 }
 ### Refresh Token
 POST {{baseUrl}}/api/v1/auth/refresh-token
+Content-Type: application/json
+
+{
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjA0OTIwMTYsImV4cCI6MTY2MDQ5MjAyNn0.KkwInVXWTDodiPDSZeMDrKc3Ct82WJiTayIihofdoDU"
+}
 
 ### Logout
 POST {{baseUrl}}/api/v1/auth/logout
 
 ### Get All Users
 GET {{baseUrl}}/api/v1/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MTAyNjQ2YzZhZjJmOWQzZDRjMTEiLCJpYXQiOjE2NjA0ODk3NzMsImV4cCI6MTY2MDQ5MzM3M30.9BwRWd6CLoi1ZEPxkpTSn0PU2Urv_Lj86Cw4a6HUKhA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MTFmOWM4M2ExZTQ0MWZkNjMyODkiLCJpYXQiOjE2NjA0OTA1MjcsImV4cCI6MTY2MDQ5MDUzN30.nbZF00LljhjdGw1xBQRX_tpAKOHlbXBbvyxtnyQLWWA
 
 ### Get One Users
 GET {{baseUrl}}/api/v1/users/62f777afaaab891acb028944
