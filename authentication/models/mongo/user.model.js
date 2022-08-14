@@ -84,6 +84,7 @@ User.methods.toJSON = function () {
         role: this.role,
     }
 };
+User.set('toJSON', { virtuals: true });
 
 User.methods.comparePassword = async function (password) {
     try {

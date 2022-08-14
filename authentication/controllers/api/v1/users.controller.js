@@ -8,8 +8,8 @@ import isMongoId from '../../../utils/isMongoId';
 module.exports = {
     getAll: async (req, res, next) => {
         try {
-            const users = await User.find().lean();
-            return res.status(200).send({
+            const users = await User.find();
+            return res.status(200).json({
                 success: true,
                 "users": users
             });

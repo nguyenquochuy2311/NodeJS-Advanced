@@ -23,7 +23,7 @@ module.exports = {
             return res.status(200).send({
                 success: true,
                 message: 'Register success',
-                data: userSaved.toJSON()
+                data: userSaved
             });
         } catch (error) {
             next(error);
@@ -46,7 +46,7 @@ module.exports = {
             return res.status(200).send({
                 success: true,
                 message: 'Login success',
-                data: user.toJSON()
+                data: user
             });
         } catch (error) {
             next(error);
