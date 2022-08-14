@@ -22,15 +22,14 @@ const verifyAccessToken = async (req, res, next) => {
 
         User.findById(payload.userId)
             .then(async (user) => {
-                console.log(user);
                 if (!user)
                     return next(createHttpError.Unauthorized());
+                next();
             })
             .catch(error => {
                 return next(error);
             });
-        next();
     });
-}
+};
 
 module.exports = verifyAccessToken;

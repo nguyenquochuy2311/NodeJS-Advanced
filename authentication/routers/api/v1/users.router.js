@@ -4,15 +4,10 @@ import usersController from '../../../controllers/api/v1/users.controller';
 
 const router = express.Router();
 
-router.get('/test', verifyAccessToken, (req, res, next) => {
-    console.log(req.headers);
-    res.json("OK");
-});
+router.get('/', verifyAccessToken, usersController.getAll);
 
-router.get('/', usersController.getAll);
+router.get('/:id', verifyAccessToken, usersController.getOne);
 
-router.get('/:id', usersController.getOne);
-
-router.delete('/:id', usersController.destroy);
+router.delete('/:id', verifyAccessToken, usersController.destroy);
 
 module.exports = router;

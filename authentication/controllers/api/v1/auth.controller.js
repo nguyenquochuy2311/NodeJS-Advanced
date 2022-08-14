@@ -5,7 +5,7 @@ import {
 import createError from 'http-errors';
 import validateRegister from '../../../validation/register';
 import validateLogin from '../../../validation/login';
-import { removePropertyObj } from '../../../utils/removePropertyObj';
+import removePropertyObj from '../../../utils/removePropertyObj';
 import { signAccessToken } from '../../../utils/jwtFunction';
 
 module.exports = {

@@ -21,7 +21,7 @@ POST {{baseUrl}}/api/v1/auth/login
 Content-Type: application/json
 
 {
-    "email": "huy123@gmail.com",
+    "email": "huy12345@gmail.com",
     "password": "123456789"
 }
 ### Refresh Token
@@ -32,10 +32,10 @@ POST {{baseUrl}}/api/v1/auth/logout
 
 ### Get All Users
 GET {{baseUrl}}/api/v1/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY4YWUyY2FjYjQyYTY5NjFhMDMxZjYiLCJpYXQiOjE2NjA0ODA1MTEsImV4cCI6MTY2MDQ4NDExMX0.8SUG_dlsohVQvLuHQTWr8moEUa75JVVoAS5vLLUBjgs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MTAyNjQ2YzZhZjJmOWQzZDRjMTEiLCJpYXQiOjE2NjA0ODk3NzMsImV4cCI6MTY2MDQ5MzM3M30.9BwRWd6CLoi1ZEPxkpTSn0PU2Urv_Lj86Cw4a6HUKhA
 
 ### Get One Users
 GET {{baseUrl}}/api/v1/users/62f777afaaab891acb028944
 
 ### Delete User
-DELETE {{baseUrl}}/api/v1/users/62f8ae2cacb42a6961a031f6
+DELETE {{baseUrl}}/api/v1/users/62f9102646c6af2f9d3d4c11
