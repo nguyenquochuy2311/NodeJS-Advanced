@@ -21,7 +21,7 @@ POST {{baseUrl}}/api/v1/auth/login
 Content-Type: application/json
 
 {
-    "email": "huy@cafe24corp.vn",
+    "email": "huy123@gmail.com",
     "password": "123456789"
 }
 ### Refresh Token
@@ -32,9 +32,10 @@ POST {{baseUrl}}/api/v1/auth/logout
 
 ### Get All Users
 GET {{baseUrl}}/api/v1/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY4YWUyY2FjYjQyYTY5NjFhMDMxZjYiLCJpYXQiOjE2NjA0ODA1MTEsImV4cCI6MTY2MDQ4NDExMX0.8SUG_dlsohVQvLuHQTWr8moEUa75JVVoAS5vLLUBjgs
 
 ### Get One Users
 GET {{baseUrl}}/api/v1/users/62f777afaaab891acb028944
 
 ### Delete User
-DELETE {{baseUrl}}/api/v1/users/62f7a252259e43fcaca1425d
+DELETE {{baseUrl}}/api/v1/users/62f8ae2cacb42a6961a031f6

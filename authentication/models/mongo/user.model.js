@@ -85,6 +85,7 @@ User.methods.toJSON = function () {
     }
 };
 User.set('toJSON', { virtuals: true });
+User.set('toObject', { getters: true, virtuals: true });
 
 User.methods.comparePassword = async function (password) {
     try {

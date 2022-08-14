@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import 'dotenv/config';
 
 function newConnection(uri) {
     const conn = mongoose.createConnection(uri, {

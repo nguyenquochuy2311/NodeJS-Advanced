@@ -1,11 +1,12 @@
-import validateRegister from '../../../validation/register';
-import validateLogin from '../../../validation/login';
-import createError from 'http-errors';
-import removePropertyObj from '../../../utils/removePropertyObj';
 import {
     Authentication,
     User
 } from '../../../models/mongo/user.model';
+import createError from 'http-errors';
+import validateRegister from '../../../validation/register';
+import validateLogin from '../../../validation/login';
+import { removePropertyObj } from '../../../utils/removePropertyObj';
+import { signAccessToken } from '../../../utils/jwtFunction';
 
 module.exports = {
     register: async (req, res, next) => {
@@ -43,10 +44,11 @@ module.exports = {
             if (!isPassword)
                 throw createError.Unauthorized();
 
+            const accessToken = await signAccessToken(user._id);
             return res.status(200).send({
                 success: true,
                 message: 'Login success',
-                data: user
+                access_token: accessToken
             });
         } catch (error) {
             next(error);
