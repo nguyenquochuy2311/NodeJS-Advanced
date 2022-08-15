@@ -15,3 +15,21 @@ cd models/mongo
 ```sh
 npm i migrate-mongo
 ```
+
+- Config redis (redis-cli) download msi file
+```sh
+https://redis.io/docs/getting-started/installation/install-redis-on-windows/
+```
+
+- Install redis-commander
+```sh
+npm install -g redis-commander
+```
+
+- Test
+```sh
+redis-commander
+```
+```sh
+redis-cli
+```

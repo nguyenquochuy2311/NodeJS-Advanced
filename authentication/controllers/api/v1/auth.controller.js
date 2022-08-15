@@ -50,8 +50,8 @@ module.exports = {
             return res.status(200).send({
                 success: true,
                 message: 'Login success',
-                access_token: accessToken,
-                refresh_token: refreshToken
+                refresh_token: refreshToken,
+                access_token: accessToken
             });
         } catch (error) {
             next(error);
@@ -72,8 +72,8 @@ module.exports = {
             return res.status(200).send({
                 success: true,
                 message: 'Refresh token success',
-                access_token: newAccessToken,
-                refresh_token: newRefreshToken
+                refresh_token: newRefreshToken,
+                access_token: newAccessToken
             });
         } catch (error) {
             next(error);

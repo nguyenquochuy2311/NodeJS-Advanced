@@ -5,7 +5,8 @@ const REDIS_PORT = 6379;
 
 const client = redis.createClient({
     host: REDIS_HOST,
-    port: REDIS_PORT
+    port: REDIS_PORT,
+    enable_offline_queue: false
 });
 
 (async () => {
@@ -24,4 +25,5 @@ client.on("connect", function () {
 client.on("ready", function () {
     console.log(`Redis ready`);
 });
+
 module.exports = client;
