@@ -1,3 +1,4 @@
 module.exports = {
-    mongodbMigration: require("./mongodb.multi-connection"),
+    mongodbConnection: require("./mongodb.multi-connection"),
+    redisConnection: require('./redis.connection')
 };
