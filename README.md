@@ -12,3 +12,6 @@ https://htmldog.com/guides/javascript/advanced/regex/
 
 - Interview Question
 https://github.com/lydiahallie/javascript-questions 
+
+- Bind, Apply and Call
+https://viblo.asia/p/bind-apply-and-call-trong-javascript-DzVGpoMDvnW
