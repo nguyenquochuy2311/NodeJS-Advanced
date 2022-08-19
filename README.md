@@ -6,3 +6,6 @@ https://levelup.gitconnected.com/5-advanced-javascript-concepts-that-will-make-y
 
 - Closures - function that returns a function
 https://htmldog.com/guides/javascript/advanced/closures/
+
+- Regular Expressions (Regex)
+https://htmldog.com/guides/javascript/advanced/regex/
