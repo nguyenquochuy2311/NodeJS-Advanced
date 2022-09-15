@@ -2,7 +2,7 @@ const arr1 = [1, 2, 3, true, null, undefined];
 
 console.log(arr1);
 
-const arr2 = ["mon", "tues", ["wed", "thurs", ["fri", "sat"]], "sun"] ;
+const arr2 = ["mon", "tues", ["wed", "thurs", ["fri", "sat"]], "sun"];
 
 console.log(arr2.flat());
 
