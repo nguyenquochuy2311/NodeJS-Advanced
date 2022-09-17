@@ -75,3 +75,10 @@ This project is under MIT license. See the [LICENSE](LICENSE) file for more deta
 ---
 
 Made with :blue_heart: by [Diego Mais](https://diegomais.github.io) :wave:
+
+
+---
+Book: https://drive.google.com/file/d/12Yh0XQU9mLgi-kyJQGbATIqBd2FRBvwG/view 
+
+---
+Tips JavaScipt: https://github.com/anonystick/learning-design-patterns
