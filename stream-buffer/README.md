@@ -3,7 +3,11 @@
 ### Stream có thể hiểu là 1 chuỗi những mảnh dữ liệu được lắp ghép lại với nhau để tạo ra dòng chảy dữ liệu và chúng được tách ra vận chuyển với một đoạn dữ liệu gọi là chunk. Chunk là 1 đoạn dữ liệu được truyền qua 1 stream, diữ liệu được cắt ra thành những mảng chunks và chuyển đi.
 Ví dụ, ta có 1 file có kích thước 128MB sẽ được tách ra thành 4 mảnh 32MB và chuyển đi
 
+![image](https://user-images.githubusercontent.com/52172667/191055456-451cccbb-d54b-46ce-a6ef-8ecacf851a14.png)
 
+## Đây chính là cách mà NodeJS dùng để xử lý lượng lớn dữ liệu. Giả sử bạn có 1 lượng dữ liệu vô cùng lớn phải xử lý, nhưng bạn sẽ không cần thiết phải đợi tất cả các dữ liệu được đọc mà có thể xử lý từng phần riêng biệt
+
+![image](https://user-images.githubusercontent.com/52172667/191055542-755d5e15-17c1-4a01-9666-61bea568708b.png)
 
 ### Chúng ta sẽ có 4 loại stream:
 - Readable stream: Tạo ra một stream để đọc
