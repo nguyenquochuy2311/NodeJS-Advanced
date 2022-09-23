@@ -15,3 +15,6 @@ https://github.com/lydiahallie/javascript-questions
 
 - Bind, Apply and Call
 https://viblo.asia/p/bind-apply-and-call-trong-javascript-DzVGpoMDvnW
+
+- MyCat MiddleWare
+https://developpaper.com/simple-understanding-of-mysql-and-mycat-middleware/
