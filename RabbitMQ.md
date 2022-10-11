@@ -1,10 +1,10 @@
-- RabbitMQ
-
-1. Hệ thống tin nhắn
+# RabbitMQ
 
 Các thuật ngữ
-- Messsage - Tin nhắn: Đối tượng trung tâm trong hệ thống tin nhắn. Có định dạng XML, JSON, Binary data, ...)
-- Message broker - Đường ống tin nhắn: Đối tượng trung gian giữa Producer và Consumer vai trò quản trị, định tuyến các tin nhắn, 
+### Messsage - Tin nhắn:
+Đối tượng trung tâm trong hệ thống tin nhắn. Có định dạng XML, JSON, Binary data, ...)
+### Message broker - Đường ống tin nhắn: 
+- Đối tượng trung gian giữa Producer và Consumer vai trò quản trị, định tuyến các tin nhắn, 
 trung tâm chuyển giao, phân phát các tin nhắn.
 Producer <-------> BROKER <----------> Consumer
 https://lacoski.github.io/media/enterprise-messaging-system.jpg
