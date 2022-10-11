@@ -70,3 +70,18 @@ giống 0 hoặc 1 hoặc nhiều queue. Khớp routing key bằng phương phá
 - Headers Exchange: 
 ![image](https://user-images.githubusercontent.com/52172667/195023153-ee818d92-9c76-4c4f-9024-9a77da19e3c1.png)
 
+## Cách cài đặt
+- Instal ErLang language
+- Download: https://www.rabbitmq.com/install-windows.html
+- Config env: 
+![image](https://user-images.githubusercontent.com/52172667/195038352-04b94287-22c2-44f0-a5c4-d051edacb5d9.png)
+
+![image](https://user-images.githubusercontent.com/52172667/195038404-24b37b62-ca2a-4e0f-b5ad-09cc94a90201.png)
+ - Open search by name "RabbitMQ Service"
+
+```sh
+rabbitmq-plugins enable rabbitmq_management
+```
+
+- Access local management of rabbit mq with port 15672
+
