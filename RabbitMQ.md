@@ -70,6 +70,24 @@ giống 0 hoặc 1 hoặc nhiều queue. Khớp routing key bằng phương phá
 - Headers Exchange: 
 ![image](https://user-images.githubusercontent.com/52172667/195023153-ee818d92-9c76-4c4f-9024-9a77da19e3c1.png)
 
+#### Rabbit MQ Management
+![image](https://user-images.githubusercontent.com/52172667/197665400-38b4842e-e5f1-43a7-abb2-a27acf754bd6.png)
+
+#### Dead Letter Exchange 
+Là một tin nhắn không thể gửi đến người nhận. Dead Letter Queue (DLQ), là hàng đợi chưa tin nhắn chưa được gửi, khôgn thể gửi đến đích của chúng vì lý do khác.
+- Tin nhắn bị từ chối (rejected) bởi một Queue Exchange
+- Message hết hạn (expire) do Time to live (TTL)
+- Vượt quá giới hạn chiều dài hàng đợi (length limit).
+- Dead Letter Exchange là một Exchange bình thường, có thể là một trong 4 loại Exchange (Direct, Fanout, Topic, Headers)
+
+- Chức năng với Dead Letter Message:
++ Gửi tới một Dead Letter Exchange
++ Thêm một số thông tin vào header của Message trước khi gửi đến Dead Letter Exchange
+
+![image](https://user-images.githubusercontent.com/52172667/197666304-a1a5da52-1f19-49fc-9c86-1a9d47737e8b.png)
+
+=> Xem thêm : https://topdev.vn/blog/su-dung-dead-letter-exchange-trong-rabbitmq/
+
 ## Cách cài đặt
 - Instal ErLang language
 - Download: https://www.rabbitmq.com/install-windows.html
