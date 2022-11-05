@@ -24,3 +24,6 @@ https://anonystick.com/blog-developer/pm2-neu-file-logs-qua-lon-thi-lam-dieu-nay
 
 - Send Error to Slack
 https://anonystick.com/blog-developer/tich-hop-slack-va-express-theo-doi-he-thong-api-2021061832036500
+
+- Perfomance Motoring
+https://nordiccoder.com/blog/meo-tao-may-chu-node-js-hieu-suat-cao-nhat/

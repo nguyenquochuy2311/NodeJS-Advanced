@@ -1,0 +1,11 @@
+server/node_modules/
+server/.env
+media/tmp/
+media/data/
+server/package-lock.json
+server/src/public/img/posters/*
+server/src/public/img/covers/*
+server/src/public/img/screenshots/*
+server/.eslintrc.json
+elasticsearch/
+mysql
