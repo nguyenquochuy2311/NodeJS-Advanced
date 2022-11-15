@@ -30,3 +30,6 @@ https://nordiccoder.com/blog/meo-tao-may-chu-node-js-hieu-suat-cao-nhat/
 
 - Performance with Benchmark
 https://anonystick.com/blog-developer/cache-trong-nodejs-voi-redis-va-test-hieu-suat-voi-benchmark-2021061668180955
+
+- Map - HashMap
+https://www.showwcase.com/show/18341/javascript-hashmap-performant-key-value-variable
