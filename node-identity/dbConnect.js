@@ -43,6 +43,7 @@ exports.dbContextAccessor = (req, res, next) => {
             });
     }
     else {
+        console.log("Error");
         return next();
     }
 };

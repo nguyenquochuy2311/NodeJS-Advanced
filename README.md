@@ -30,3 +30,8 @@ https://nordiccoder.com/blog/meo-tao-may-chu-node-js-hieu-suat-cao-nhat/
 
 - Performance with Benchmark
 https://anonystick.com/blog-developer/cache-trong-nodejs-voi-redis-va-test-hieu-suat-voi-benchmark-2021061668180955
+
+- Concurrency / Paralleism
+https://www.youtube.com/watch?v=ENc_sLdUlFE&ab_channel=codedamn
+
+- 

@@ -118,7 +118,11 @@ exports.verifyAdmin = (req, res, next) => {
 };
 
 exports.verifyToken = (req, res, next) => {
-    let token = this.extractJwtToken(req.headers.authorization);
+    console.log("Start verify token middleware");
+    const { headers } = req.headers.authorization;
+    console.log(headers);
+    let token = this.extractJwtToken(headers);
+    console.log(token);
     if(token === null) {
         responseWriter.response(res, null, {success: false, "response" : "Invalid authentication token"}, 403);
         return new Error("Invalid authentication token");
@@ -139,6 +143,9 @@ exports.getJwtTokenPayload = (token) => {
 };
 
 exports.extractJwtToken = (authHeader) => {
+    console.log(authHeader);
+    if(!authHeader || authHeader === undefined) return null;
+
     if (authHeader.startsWith("Bearer ") || authHeader.startsWith("bearer ")){
         return authHeader.substring(7, authHeader.length);
     } else {

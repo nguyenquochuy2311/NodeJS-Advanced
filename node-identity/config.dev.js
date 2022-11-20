@@ -8,8 +8,8 @@ function AppSettings() {
     this.secretKey = PRIV_KEY;
     this.publicKey = PUB_KEY;
 
-    // this.mongoTenants = 'mongodb://localhost:27017/Tenants';
-    this.mongoTenants = 'mongodb+srv://huymongo:huymongo@cluster0.nxy0r0x.mongodb.net/Tenents?retryWrites=true&w=majority';
+    this.mongoTenants = 'mongodb://localhost:27017/Tenants';
+    // this.mongoTenants = 'mongodb+srv://huymongo:huymongo@cluster0.nxy0r0x.mongodb.net/Tenents?retryWrites=true&w=majority';
     this.redisHost = "redis://127.0.0.1:6379";
     this.redisPass = null,
     this.mongoDb = (dbName) => {
