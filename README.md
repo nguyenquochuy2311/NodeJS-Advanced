@@ -31,7 +31,12 @@ https://nordiccoder.com/blog/meo-tao-may-chu-node-js-hieu-suat-cao-nhat/
 - Performance with Benchmark
 https://anonystick.com/blog-developer/cache-trong-nodejs-voi-redis-va-test-hieu-suat-voi-benchmark-2021061668180955
 
+<<<<<<< HEAD
 - Concurrency / Paralleism
 https://www.youtube.com/watch?v=ENc_sLdUlFE&ab_channel=codedamn
 
 - 
+=======
+- Map - HashMap
+https://www.showwcase.com/show/18341/javascript-hashmap-performant-key-value-variable
+>>>>>>> 6c973e15e0e6d94cd75881dba6cceafc35f4cf48
