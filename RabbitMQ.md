@@ -103,3 +103,16 @@ rabbitmq-plugins enable rabbitmq_management
 
 - Access local management of rabbit mq with port 15672
 
+- Status rabbitmq server
+```sh
+systemctl status rabbitmq-server
+```
+
+- Stop rabbitmq server
+```sh
+systemctl stop rabbitmq-server
+```
+- Start rabbitmq server
+```sh
+systemctl start rabbitmq-server
+```
