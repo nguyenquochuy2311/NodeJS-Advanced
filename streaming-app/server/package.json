@@ -1,0 +1,44 @@
+{
+  "name": "vod-streaming-app",
+  "version": "1.0.0",
+  "description": "Webapp to serve vod movies with admin dashboard.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --trace-warnings src/server.js",
+    "start": "node src/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.15.0",
+    "axios": "^0.26.1",
+    "bcrypt": "^5.0.1",
+    "bull": "^4.2.0",
+    "connect-flash": "^0.1.1",
+    "connect-session-sequelize": "^7.1.2",
+    "cookie-parser": "^1.4.5",
+    "csurf": "^1.11.0",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.13.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.3",
+    "mysql2": "^2.3.2",
+    "passport": "^0.5.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.8.0",
+    "stripe": "^8.184.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "nodemon": "^2.0.14"
+  }
+}

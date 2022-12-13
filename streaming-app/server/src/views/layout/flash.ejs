@@ -1,0 +1,10 @@
+<% if (errors) { %>
+    <script > 
+        swal("Something is Wrong", "<%- errors %>", "error");
+    </script>
+<% } %>
+<% if (success) { %>
+    <script >
+        swal("Success", "<%- success %>", "success");
+    </script>
+<% } %>

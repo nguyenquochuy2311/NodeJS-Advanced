@@ -1,0 +1,47 @@
+@baseUrl = http://localhost:3000
+
+### Test API
+# @Comment
+GET {{baseUrl}}/api
+
+### Register User
+POST {{baseUrl}}/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "first_name": "huy",
+    "last_name": "nguyen",
+    "email": "huy12345@gmail.com",
+    "password": "123456789",
+    "repeat_password": "123456789"
+}
+
+### Login User
+POST {{baseUrl}}/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "huy12345@gmail.com",
+    "password": "123456789"
+}
+### Refresh Token
+POST {{baseUrl}}/api/v1/auth/refresh-token
+Content-Type: application/json
+
+{
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MTFmOWM4M2ExZTQ0MWZkNjMyODkiLCJpYXQiOjE2NjA1NjgxMjIsImV4cCI6MTY2MDU2ODcyMn1.QmNAXqY0w4l2NZIrAhrABorLHyZoNaj__uUWBa8AaSE"
+}
+
+### Logout
+POST {{baseUrl}}/api/v1/auth/logout
+
+### Get All Users
+GET {{baseUrl}}/api/v1/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MTFmOWM4M2ExZTQ0MWZkNjMyODkiLCJpYXQiOjE2NjA1NDcwNTMsImV4cCI6MTY2MDU0NzA2M30.L6hCKlzU-ysgFIIEMH-w1Yf_bOrUelNKG5Et6TucVAI
+
+### Get One Users
+GET {{baseUrl}}/api/v1/users/62f777afaaab891acb028944
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MTFmOWM4M2ExZTQ0MWZkNjMyODkiLCJpYXQiOjE2NjA1NDcwNTMsImV4cCI6MTY2MDU0NzA2M30.L6hCKlzU-ysgFIIEMH-w1Yf_bOrUelNKG5Et6TucVAI
+
+### Delete User
+DELETE {{baseUrl}}/api/v1/users/62f9102646c6af2f9d3d4c11

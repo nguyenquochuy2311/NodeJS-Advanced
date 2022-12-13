@@ -1,0 +1,55 @@
+/*
+
+Example 1:
+
+Input: s = "aa", p = "a"
+Output: false
+Explanation: "a" does not match the entire string "aa".
+Example 2:
+
+Input: s = "aa", p = "a*"
+Output: true
+Explanation: '*' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes "aa".
+Example 3:
+
+Input: s = "ab", p = ".*"
+Output: true
+Explanation: ".*" means "zero or more (*) of any character (.)".
+
+Input: s = "aab", p = "c*a*b"
+Output: false
+Expected: true
+
+*/
+s = "aab";
+p="c*a*b";
+
+var isMatch = function(s, p) {
+    if(s === p)
+        return true;
+
+    let pNew = "";
+    for (let i = 0; i < p.length; i++) {
+        if(p[i] === '*') {
+            if(i != 0)
+                pNew += p[i-1] ? p[i-1] : "";
+        }
+        else
+            pNew += p[i];
+    }
+    console.log(pNew);
+    let pResult = "";
+    for (let i = 0; i < pNew.length; i++) {
+        if(pNew[i] === '.') 
+            pResult += s[i];
+        else
+            pResult += pNew[i];
+    }
+
+    if(pResult === s)
+        return true;
+  
+    return false;
+};
+
+console.log(isMatch(s, p));

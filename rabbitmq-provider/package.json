@@ -1,0 +1,17 @@
+{
+  "name": "rabbitmq-provider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cubable": "node cubable.js",
+    "admin-pannel": "node admin_pannel.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "express": "^4.18.2"
+  }
+}

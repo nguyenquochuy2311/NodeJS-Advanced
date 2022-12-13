@@ -1,0 +1,1 @@
+https://anonystick.com/blog-developer/uuid-thieu-sot-trong-lap-trinh-doi-thu-da-phat-hien-kinh-doanh-cua-chung-toi-backend-service-2022031154685700

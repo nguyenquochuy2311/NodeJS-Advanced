@@ -1,0 +1,16 @@
+{
+  "name": "uuid-by-crypto",
+  "version": "1.0.0",
+  "description": "https://anonystick.com/blog-developer/uuid-thieu-sot-trong-lap-trinh-doi-thu-da-phat-hien-kinh-doanh-cua-chung-toi-backend-service-2022031154685700",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nanoid": "^4.0.0",
+    "uuid": "^9.0.0"
+  }
+}
