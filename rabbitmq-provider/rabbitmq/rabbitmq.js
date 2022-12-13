@@ -5,16 +5,18 @@ const URL = 'amqp://localhost';
 class RabbitMQ {
 
     constructor() {
-        this.connection = null;
-        this.channel = null;
+        this.connection;
+        this.channel;
+        this.queue = '';
     }
 
     async connect() {
         try {
-            this.connection = await amqp.connect(URL);
-            if (this.connection) {
-                this.channel = await this.connection.createChannel();
-            }
+            const connection = await amqp.connect(URL);
+            const channel = await connection.createChannel();
+            this.connection = connection;
+            this.channel = channel;
+            await this.channel.assertQueue(this.q, { durable: false });
         } catch (error) {
             console.error(error);
             setTimeout(() => {
@@ -27,6 +29,7 @@ class RabbitMQ {
         try {
             if (this.connection) await this.connection.close();
         } catch (error) {
+            console.error(error);
             throw error;
         }
     }

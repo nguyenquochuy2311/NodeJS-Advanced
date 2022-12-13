@@ -10,7 +10,6 @@ class Consumer extends RabbitMQ {
         await this.connect();
         try {
             if (queueName) {
-                console.log(queueName);
                 await this.channel.assertQueue(queueName);
                 await this.channel.consume(queueName, (data) => {
                     if (data && data.content) {
@@ -22,6 +21,7 @@ class Consumer extends RabbitMQ {
                 })
             }
         } catch (error) {
+            console.error(error);
             this.connect();
         }
     }

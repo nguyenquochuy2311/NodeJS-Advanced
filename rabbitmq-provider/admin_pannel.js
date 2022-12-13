@@ -13,6 +13,7 @@ const AdminPannelConsumer = require('./rabbitmq/consumer');
 const adminPannelConsumer = new AdminPannelConsumer();
 
 (async () => {
+    await adminPannelConsumer.connect();
     await adminPannelConsumer.consume(ADMIN_PANNEL_QUEUE.WORKSPACE_SIGNUP);
 });
 

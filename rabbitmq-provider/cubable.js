@@ -9,6 +9,9 @@ const app = express();
 
 const CubablePublisher = require('./rabbitmq/publisher');
 const cubablePublisher = new CubablePublisher(); 
+(async() => {
+    await cubablePublisher.connect();
+});
 
 const { ADMIN_PANNEL_QUEUE } = require('./admin_pannel_constant');
 

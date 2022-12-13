@@ -1,0 +1,2 @@
+- https://strapengine.com/rabbitmq-in-nodejs-and-task-processing/
+- https://strapengine.com/rabbitmq-in-docker/

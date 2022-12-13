@@ -4,7 +4,6 @@ class Publisher extends RabbitMQ {
 
     constructor() {
         super();
-        this.connect();
     }
 
     async sendToQueue(queueName, data) {
@@ -16,6 +15,7 @@ class Publisher extends RabbitMQ {
                 await this.channel.sendToQueue(queueName, Buffer.from(data));
             }
         } catch (error) {
+            console.log(error);
             this.connect();
         }
     }
