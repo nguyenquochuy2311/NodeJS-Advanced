@@ -1,18 +1,15 @@
 const express = require('express');
 const app = express();
 
-const MessageBroker = require('./helpers/rabbitmq.helper');
-const RMQConsumer = await new MessageBroker().init();
+const processSignup = require('./services/utilities/rabbitmq/consume_signup_workspace');
 
-app.use(async (req, res, next) => {
-    try {
-        
-    } catch (error) {
-        process.exit(1);
-    }
+app.use('/', (req, res) => {
+    res.send('OK');
 })
+
+processSignup();
 
 const PORT = 9001;
 app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);
-})
+});

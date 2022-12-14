@@ -1,14 +1,11 @@
-const EXCHANGE = 'workspace_exchange';
+const EXCHANGE = 'admin_pannel';
 
-module.exports = async(instance, { message, routingKey }) => {
+module.exports = async (instance, message, routingKey) => {
     try {
-        await instance.createExchange({
-            name: EXCHANGE,
-            type: 'direct'
-        });
-        await instance.publish({ ex: EXCHANGE, routingKey }, message);
+        await instance.createExchange(EXCHANGE, 'direct');
+        await instance.publish(EXCHANGE, message, routingKey);
         return Promise.resolve();
     } catch (error) {
-        return Promise.reject(error);
+        return instance.init();
     }
 }

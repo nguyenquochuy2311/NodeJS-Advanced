@@ -1,5 +1,6 @@
 const amqp = require('amqplib');
 const URL = 'amqp://localhost';
+const _ = require('lodash');
 
 class RabbitMQ {
     constructor() {
@@ -18,30 +19,38 @@ class RabbitMQ {
         }
     }
 
-    async createExchange({ name, type, durable = true }) {
+    async createExchange(name, type = 'fanout') {
         if (!this.connection) await this.init();
-        await this.channel.assertExchange(name, type, { durable });
+        await this.channel.assertExchange(name, type, { durable: true });
         this.exchange = name;
         return this;
     }
 
     /**
      * Send message to an exchange
-     * @param {Object} - object defining exchange and routingKey
-     * @param {Object} msg Message as Buffer
+     * @param {String} - string defining exchange
+     * @param {String} - msg Message as Buffer
+     * @param {String} - string defining and routingKey
      */
-    async publish({ exchange, routingKey }, msg) {
-        const queue = `${exchange}.${routingKey}`
-        await this.channel.assertQueue(queue, { durable: true })
-        this.channel.bindQueue(queue, exchange, routingKey)
-        this.channel.publish(exchange, routingKey, Buffer.from(msg))
+    async publish(exchange, msg, routingKey = '') {
+        const queue = `${exchange}.${routingKey}`;
+
+        await this.channel.assertQueue(queue);
+        
+        const args =Object.assign({}, {
+            'x-delay': 5000
+        }); 
+        this.channel.bindQueue(queue, exchange, routingKey, args);
+        
+        if(typeof msg !== 'string') msg = JSON.stringify(msg);
+        this.channel.publish(exchange, routingKey, Buffer.from(msg), args);
     }
 
     /**
      * @param {Object} - object defining queue name and bindingKey
      * @param {Function} handler Handler that will be invoked with given message and acknowledge function (msg, ack)
      */
-    async subscribe({ exchange, bindingKey }, handler) {
+    async subscribe(exchange, bindingKey, handler) {
         const queue = `${exchange}.${bindingKey}`
         if (!this.connection) {
             await this.init()
@@ -54,9 +63,12 @@ class RabbitMQ {
             this.queues[queue].push(handler)
             return () => this.unsubscribe(queue, handler)
         }
-
-        await this.channel.assertQueue(queue, { durable: true })
-        this.channel.bindQueue(queue, exchange, bindingKey)
+        
+        const args =Object.assign({}, {
+            'x-delay': 5000
+        }); 
+        await this.channel.assertQueue(queue)
+        this.channel.bindQueue(queue, exchange, bindingKey, args);
         this.queues[queue] = [handler]
         this.channel.consume(
             queue,
