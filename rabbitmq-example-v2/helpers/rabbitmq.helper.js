@@ -35,7 +35,7 @@ class RabbitMQ {
     async publish(exchange, msg, routingKey = '') {
         const queue = `${exchange}.${routingKey}`;
 
-        await this.channel.assertQueue(queue);
+        await this.channel.assertQueue(queue)
         
         const args =Object.assign({}, {
             'x-delay': 5000
@@ -67,7 +67,7 @@ class RabbitMQ {
         const args =Object.assign({}, {
             'x-delay': 5000
         }); 
-        await this.channel.assertQueue(queue)
+        await this.channel.assertQueue(queue);
         this.channel.bindQueue(queue, exchange, bindingKey, args);
         this.queues[queue] = [handler]
         this.channel.consume(
