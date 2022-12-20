@@ -2,14 +2,14 @@
 
 const amqp = require("amqplib");
 
-const queue = "demo";
+const queue = "cubable_hello";
 
 var connection;
 
 //  Connect RabbitMQ
 async function connectRabbitMQ() {
     try {
-        connection = await amqp.connect("amqp://localhost");
+        connection = await amqp.connect("amqp://client_panel_1:cuBaBl1078@173.82.235.209//cubable_hello");
         console.info("connect to RabbitMQ success");
 
         const channel = await connection.createChannel();

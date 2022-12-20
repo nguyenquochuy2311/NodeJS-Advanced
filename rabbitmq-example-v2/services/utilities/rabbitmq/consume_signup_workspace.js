@@ -7,7 +7,7 @@ async function processSignup() {
   try {
     const consumer = await RMQConsumer;
     await consumer.createExchange(EXCHANGE, "direct");
-    consumer.subscribe(EXCHANGE, "workspace_signup", handleWorkspaceSignup);
+    consumer.subscribe(EXCHANGE, "workspace_signin", handleWorkspaceSignup);
   } catch (error) {
     console.log(error);
   }

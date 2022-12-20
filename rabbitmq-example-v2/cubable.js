@@ -14,18 +14,17 @@ app.use(async (req, res, next) => {
     }
 });
 
-for (let index = 0; index < array.length; index++) {
-    app.get("/signup", async (req, res) => {
-        const data = {
-            workspaceID: 'ws1',
-            email: 'test@gmail.com'
-        }
-    
-        await publishWorkspace(req.RMQProducer, data, 'workspace_signup');
-    
-        res.json(data);
-    });
-}
+app.get("/signup", async (req, res) => {
+    const data = {
+        workspaceID: 'ws1',
+        email: 'test@gmail.com'
+    }
+
+    await publishWorkspace(req.RMQProducer, data, 'workspace_signup');
+
+    res.json(data);
+});
+
 
 app.get("/signin", async (req, res) => {
     const data = {
@@ -33,7 +32,7 @@ app.get("/signin", async (req, res) => {
         email: 'test1@gmail.com'
     }
 
-    await publishWorkspace(req.RMQProducer, data, 'workspace_signin');
+    await publishWorkspace(req.RMQProducer, data, 'create_workspace');
 
     res.json(data);
 })

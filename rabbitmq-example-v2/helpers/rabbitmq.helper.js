@@ -37,13 +37,11 @@ class RabbitMQ {
 
         await this.channel.assertQueue(queue)
         
-        const args =Object.assign({}, {
-            'x-delay': 5000
-        }); 
-        this.channel.bindQueue(queue, exchange, routingKey, args);
+        this.channel.bindQueue(queue, exchange, routingKey);
         
         if(typeof msg !== 'string') msg = JSON.stringify(msg);
-        this.channel.publish(exchange, routingKey, Buffer.from(msg), args);
+
+        this.channel.publish(exchange, routingKey, Buffer.from(msg));
     }
 
     /**
@@ -51,25 +49,23 @@ class RabbitMQ {
      * @param {Function} handler Handler that will be invoked with given message and acknowledge function (msg, ack)
      */
     async subscribe(exchange, bindingKey, handler) {
-        const queue = `${exchange}.${bindingKey}`
+        const queue = `${exchange}.${bindingKey}`;
         if (!this.connection) {
-            await this.init()
+            await this.init();
         }
         if (this.queues[queue]) {
             const existingHandler = _.find(this.queues[queue], h => h === handler)
             if (existingHandler) {
-                return () => this.unsubscribe(queue, existingHandler)
+                return () => this.unsubscribe(queue, existingHandler);
             }
             this.queues[queue].push(handler)
-            return () => this.unsubscribe(queue, handler)
+            return () => this.unsubscribe(queue, handler);
         }
-        
-        const args =Object.assign({}, {
-            'x-delay': 5000
-        }); 
+
         await this.channel.assertQueue(queue);
-        this.channel.bindQueue(queue, exchange, bindingKey, args);
-        this.queues[queue] = [handler]
+        this.channel.bindQueue(queue, exchange, bindingKey);
+        this.queues[queue] = [handler];
+        
         this.channel.consume(
             queue,
             async (msg) => {
